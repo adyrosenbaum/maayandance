@@ -1,0 +1,27 @@
+Date.prototype.formatMMDDYYYY=function(){return('0'+(this.getMonth()+1)).slice(-2)+
+"/"+('0'+(this.getDate()+1)).slice(-2)+
+"/"+this.getFullYear();}
+Date.prototype.formatDDMMYYYY=function(){return('0'+(this.getDate())).slice(-2)+
+"/"+('0'+(this.getMonth()+1)).slice(-2)+
+"/"+this.getFullYear();}
+if(Array.prototype.equals)
+console.warn("Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there's a framework conflict or you've got double inclusions in your code.");Array.prototype.equals=function(array){if(!array)
+return false;if(this.length!=array.length)
+return false;for(var i=0,l=this.length;i<l;i++){if(this[i]instanceof Array&&array[i]instanceof Array){if(!this[i].equals(array[i]))
+return false;}
+else if(this[i]!=array[i]){return false;}}
+return true;}
+if(!Array.prototype.find){Object.defineProperty(Array.prototype,'find',{value:function(predicate){if(this==null){throw new TypeError('"this" is null or not defined');}
+var o=Object(this);var len=o.length>>>0;if(typeof predicate!=='function'){throw new TypeError('predicate must be a function');}
+var thisArg=arguments[1];var k=0;while(k<len){var kValue=o[k];if(predicate.call(thisArg,kValue,k,o)){return kValue;}
+k++;}
+return undefined;}});}
+if(!Array.prototype.includes){Object.defineProperty(Array.prototype,'includes',{value:function(searchElement,fromIndex){if(this==null){throw new TypeError('"this" is null or not defined');}
+const o=Object(this);const len=o.length>>>0;if(len===0){return false;}
+const n=fromIndex|0;let k=Math.max(n>=0?n:len-Math.abs(n),0);while(k<len){if(o[k]===searchElement){return true;}
+k++;}
+return false;}});}
+if(!String.prototype.includes){String.prototype.includes=function(search,start){'use strict';if(search instanceof RegExp){throw TypeError('first argument must not be a RegExp');}
+if(start===undefined){start=0;}
+return this.indexOf(search,start)!==-1;};}
+Object.defineProperty(Array.prototype,"equals",{enumerable:false});String.prototype.format=function(){var args=arguments;return this.replace(/{([0-9]+)}/g,function(match,index){return typeof args[index]=='undefined'?match:args[index];});};

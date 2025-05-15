@@ -1,0 +1,46 @@
+function objectValues(obj){return Object.keys(obj).map(function(k){return obj[k];});}
+if(typeof dependencies==="undefined"||!dependencies)
+dependencies={};var affects={};var affected={};var fields=[];for(var id in dependencies){if(!dependencies.hasOwnProperty(id))
+continue;var dependency=dependencies[id];var conditions=dependency.conditions;fields.push(dependency.id);affects[dependency.id]=(affects[dependency.id]||[]);for(var ci=0;ci<conditions.length;++ci){var condition=conditions[ci];for(var li=0;li<condition.leads.length;++li){var lead=condition.leads[li];affects[dependency.id].push(lead);affected[lead]=(affected[lead]||[]);affected[lead].push({name:dependency.id,type:dependency.type,condition:condition});}}}
+$("input").on("keyup",jqReevaluateElement);$('input[type="date"]').change(jqReevaluateElement);$("textarea").on("keyup",jqReevaluateElement);$("canvas").on("mouseout",handleSignatureEvent);$("canvas").on("touchend",handleSignatureEvent);$("ins").click(jqReevaluateINSElement);$(".icheckbox_minimal-atp ins").click(function(){var name=getFieldName($(this).siblings("input"));reevaluateElement(name);});$(".multiple-selection-label").click(function(){var id=$(this).attr("for");var name=getFieldName($("#"+id));reevaluateElement(name);});$("select").on("change",jqReevaluateElement);$(".make-switch").on("switch-change",function(){var name=getFieldName($(this).find("input[type='hidden']"));reevaluateElement(name);});$(".vp_datepicker").on("change",jqReevaluateElement);$('.rating-field select').on("change",jqReevaluateElement);function handleSignatureEvent(){var name=getFieldName($(this));reevaluateElement(name);}
+$(document).ready(function(){evaluateInitialState();});function evaluateInitialState(){for(var i=0;i<fields.length;++i){reevaluateElement(fields[i]);}}
+function jqReevaluateINSElement(){var name=getFieldName($(this).siblings("input"));reevaluateElement(name);}
+function jqReevaluateElement(){var name=getFieldName($(this));reevaluateElement(name);}
+function reevaluateElement(name){var elements=affects[name];if(elements==null)
+return;for(var i=0;i<elements.length;++i){reevaluateElements(elements[i],[]);}
+if(typeof performLayout==="function"){performLayout();}}
+function reevaluateElements(name,visited,upstream){var affectees=affected[name];if(affectees==null)
+return;var result=false;for(var i=0;i<affectees.length;++i){result|=evaluateCondition(affectees[i]);}
+if(upstream!==undefined)
+result&=upstream;toggleFieldVisibilityAndDisable(name,result);var contentHeight=$('.containerSC').height();$('.wrapper').height(contentHeight);var elements=affects[name];if(elements==null)
+return;for(var i=0;i<elements.length;++i){if(visited.includes(elements[i]))
+continue;visited.push(elements[i]);reevaluateElements(elements[i],visited,result);}}
+function evaluateCondition(e){switch(e.type){case "textarea":case "string":return evaluateStringCondition(e.name,e.condition);case "number":case "rating":return evaluateNumberCondition(e.name,e.condition);case "date":return evaluateDateCondition(e.name,e.condition);case "multioptions":return evaluateMultioptions(e.name,e.condition);case "options":return evaluateOptions(e.name,e.condition);case "bool":return evaluateBooleanCondition(e.name,e.condition);case "file":return evaluateFileCondition(e.name,e.condition);case "signature":return evaluateSignatureCondition(e.name,e.condition);}}
+function getFieldByName(name){var field=$("[name$="+name+"]");if(!field.length){field=$("[name*="+name+"_]");}
+return field;}
+function getFieldName($field){var name=$field.attr("name");if(isOfTypeForm&&typeof isPreviewMode==='undefined'){var splitted=name.split('_');name=splitted.slice(0,splitted.length-1).join('_');}
+return name;}
+function evaluateStringCondition(name,condition){var field=getFieldByName(name);var val=field.val();if(!val)return;var result=false;switch(condition.operation){case "eq":result=condition.value===val;break;case "like":result=val.includes(condition.value);break;}
+return result;}
+function evaluateNumberCondition(name,condition){var field=getFieldByName(name);var val=parseInt(field.val());if(isNaN(val))return;var result=false;if(condition.operation==="range"){var gt=parseInt(condition.value.gt);var lt=parseInt(condition.value.lt);result=gt<=val&&val<=lt;return result;};var conditionVal=parseInt(condition.value);switch(condition.operation){case "lt":result=val<conditionVal;break;case "gt":result=val>conditionVal;break;case "eq":result=conditionVal===val;break;case "neq":result=conditionVal!==val;break;}
+return result;}
+function evaluateDateCondition(name,condition){var field=getFieldByName(name);var recieved_date=field.val();if(!recieved_date)return false;var result=false;var dateFormat=isMobile.any()?"YYYY-MM-DD":"DD/MM/YYYY";recieved_date=moment(recieved_date,dateFormat);if(condition.operation==="range"){result=recieved_date.isBetween(condition.value.gt,condition.value.lt,"day",'[]');return result;}
+var value=moment(condition.value);switch(condition.operation){case "lt":result=recieved_date.isBefore(value,"day");break;case "gt":result=recieved_date.isAfter(value,"day");break;case "eq":result=recieved_date.isSame(value,"day");break;case "neq":result=!recieved_date.isSame(value,"day");break;}
+return result;}
+function evaluateMultioptions(name,condition){var multiOptionFields=getFieldByName(name);var result=false;var r=[];if($(multiOptionFields).first().is('input')){var r=[];multiOptionFields.each(function(index,cb){if($(cb).parent().hasClass("checked"))
+r.push($("#"+cb.id).val());});}
+else{var multiOption=getFieldByName(name);r=multiOption.val();}
+if(!r)return result;switch(condition.operation){case "like":result=false;for(var valueIndex in condition.value)
+if(r.includes(condition.value[valueIndex])){result=true;break;}
+break;case "eq":r.sort();condition.value.sort()
+result=condition.value.equals(r);break;}
+return result;}
+function evaluateOptions(name,condition){var field=getFieldByName(name);var options=field;elementType=options.prop('nodeName');var val;switch(elementType){case "SELECT":val=field.val();break;case "INPUT":var selectedOption=options.toArray().filter(function(opt){return $(opt).parent().hasClass("checked")});val=$(selectedOption).val();break;default:}
+var result=condition.value.includes(val);return result;}
+function evaluateBooleanCondition(name,condition){var field=getFieldByName(name);var val=field.val();var con=condition.value==="כן"||condition.value==="Yes";var result=(val==="true")===con;return result;}
+function evaluateFileCondition(name,condition){var field=getFieldByName(name);var val=field.val();return val&&(condition.operation=="true");}
+function evaluateSignatureCondition(name,condition){var field=getFieldByName(name);var val=field.val();return val&&(condition.operation=="true");}
+function toggleFieldVisibilityAndDisable(name,show){var field=objectValues(dependencies).find(function(p){return p.id==name});if((field||{}).type=="multioptions"){if(show){$("."+name).closest(".atp_k_iUForm_Field").removeAttr("disabled").show();var isRequired=$("."+name).find(".REQUIRED1");if(isRequired){isRequired.addClass("CheckboxIsRequired");isRequired.removeClass("REQUIRED1");}}else{$("."+name).closest(".atp_k_iUForm_Field").attr("disabled","disabled").hide();var isRequired=$("."+name).find(".CheckboxIsRequired");if(isRequired){isRequired.addClass("REQUIRED1");isRequired.removeClass("CheckboxIsRequired");}}}else{if(show){$("."+name).closest(".atp_k_iUForm_Field").show();if($("#"+name).attr("hidden")){$("#"+name).removeAttr("hidden").removeAttr("disabled");}}else{$("."+name).closest(".atp_k_iUForm_Field").hide();if(!$("#"+name).attr("hidden"))
+$("#"+name).attr("hidden","true").attr("disabled","disabled");}}}
+function toDate(str){var reg=/(\d{2})\/(\d{2})\/(\d{4})/gm.exec(str);if(!reg)
+return null;var result=Date.parse(reg[2]+"/"+reg[1]+"/"+reg[3]);return result;}
