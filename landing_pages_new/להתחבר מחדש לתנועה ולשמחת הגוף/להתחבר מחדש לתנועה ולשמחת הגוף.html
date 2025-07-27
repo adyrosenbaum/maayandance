@@ -78,7 +78,7 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  color: #002157;
+  color: #9E2741;
   backdrop-filter: blur(3px); /* optional: subtle blur */
   border-radius: 24px;
 }
@@ -136,6 +136,27 @@ section p {
   height: auto;
   display: block;
   margin: 20px auto;
+}
+
+.portrateImage {
+  width: 40%;
+  margin: 0 auto; /* centers the container */
+}
+@media (max-width: 960px) {
+  .portrateImage {
+	  width: 60%;
+	}
+}
+@media (max-width: 700px) {
+  .portrateImage {
+	  width: 90%;
+	}
+}
+.portrateImage img {
+  width: 100%;      /* image fills 50% of page width via parent */
+  height: auto;
+  display: block;
+  border-radius: 24px;
 }
 
 /* מפרידי עדויות */
@@ -273,8 +294,7 @@ a[href^="tel"] {
 	<p>הגוף שלך עבר כברת דרך.<br>
 	   הוא עדיין מחזיק בתוכו יופי, תבונה, חיים.<br>
 	   גם עכשיו את יכולה להתמלא בתנועה חדשה.<br>
-	   לרקוד את הריקוד של עכשיו.<br>
-	   ברכות, בקצב שלך.</p>
+	   לרקוד את הריקוד של עכשיו.</p>
 
 	<p>הקבוצה שלנו היא מקום בטוח.<br>
 	   להיות בו יחד, להקשיב למוזיקה,<br>
@@ -313,14 +333,9 @@ a[href^="tel"] {
   יוצרת "חדר משלנו" – בית נשי לתנועה וליצירה,<br>
   ויזמת "החצר של סבא וסבתא" – מיזם חברתי בין-דורי.</p>
 
-  <div class="kImage">
+  <div class="kImage portrateImage">
     <img src="./images/maayan_portrait.jpg" alt="מעיין בן דוד">
   </div>
-</section>
-
-<section>
-  <h2 class="heading1">סקרנית? בואי נדבר</h2>
-  <p class="tel">טלפון: <a href="tel:0506395727">050-6395727</a></p>
 </section>
 
 <section class="testimonial">
