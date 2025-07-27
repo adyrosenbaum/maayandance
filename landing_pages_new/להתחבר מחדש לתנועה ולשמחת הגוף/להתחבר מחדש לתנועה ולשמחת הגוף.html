@@ -4,10 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>להתחבר מחדש לתנועה ולשמחת הגוף</title>
-  <meta name="description" content="מפגשי תנועה וריקוד לנשים בגיל השלישי והרביעי - עם מעיין בן דוד">
-  <meta name="keywords" content="ריקוד לנשים, תנועה בגיל השלישי, סדנאות לנשים מבוגרות">
-  <meta property="og:image" content="https://content.vp4.me/maayandance/Content/dsc_9472_1980x1315.jpg">
 
+  <!-- Basic Metadata -->
+  <meta name="description" content="אולי עברו שנים מאז שרקדת. אבל עמוק בפנים - עדיין יש תנועה. מפגשי תנועה וריקוד לנשים בגיל השלישי והרביעי. ">
+  <meta name="keywords" content="ריקוד לנשים, תנועה בגיל השלישי, סדנאות לנשים מבוגרות">
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="להתחבר מחדש לתנועה ולשמחת הגוף">
+  <meta property="og:description" content="אולי עברו שנים מאז שרקדת. אבל עמוק בפנים - עדיין יש תנועה. מפגשי תנועה וריקוד לנשים בגיל השלישי והרביעי. ">
+  <meta property="og:image" content="https://adyrosenbaum.github.io/maayandance/landing_pages_new/%D7%9C%D7%94%D7%AA%D7%97%D7%91%D7%A8%20%D7%9E%D7%97%D7%93%D7%A9%20%D7%9C%D7%AA%D7%A0%D7%95%D7%A2%D7%94%20%D7%95%D7%9C%D7%A9%D7%9E%D7%97%D7%AA%20%D7%94%D7%92%D7%95%D7%A3/images/maayan_baloon.jpg">
+  <meta property="og:url" content="https://adyrosenbaum.github.io/maayandance/landing_pages_new/%D7%9C%D7%94%D7%AA%D7%97%D7%91%D7%A8%20%D7%9E%D7%97%D7%93%D7%A9%20%D7%9C%D7%AA%D7%A0%D7%95%D7%A2%D7%94%20%D7%95%D7%9C%D7%A9%D7%9E%D7%97%D7%AA%20%D7%94%D7%92%D7%95%D7%A3/%D7%9C%D7%94%D7%AA%D7%97%D7%91%D7%A8%20%D7%9E%D7%97%D7%93%D7%A9%20%D7%9C%D7%AA%D7%A0%D7%95%D7%A2%D7%94%20%D7%95%D7%9C%D7%A9%D7%9E%D7%97%D7%AA%20%D7%94%D7%92%D7%95%D7%A3.html">
+  <meta property="og:locale" content="he_IL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="להתחבר מחדש לתנועה ולשמחת הגוף">
+  <meta name="twitter:description" content="אולי עברו שנים מאז שרקדת. אבל עמוק בפנים - עדיין יש תנועה. מפגשי תנועה וריקוד לנשים בגיל השלישי והרביעי. ">
+  <meta name="twitter:image" content="https://adyrosenbaum.github.io/maayandance/landing_pages_new/%D7%9C%D7%94%D7%AA%D7%97%D7%91%D7%A8%20%D7%9E%D7%97%D7%93%D7%A9%20%D7%9C%D7%AA%D7%A0%D7%95%D7%A2%D7%94%20%D7%95%D7%9C%D7%A9%D7%9E%D7%97%D7%AA%20%D7%94%D7%92%D7%95%D7%A3/images/maayan_baloon.jpg">
   <style>
 body {
   font-family: "Arial", sans-serif;
@@ -15,18 +29,85 @@ body {
   color: #002157;
   line-height: 1.6;
   margin: 0;
-  padding: 0;
-  padding-right: 25px;
-  padding-left: 25px;
+  padding: 0 25px;
   direction: rtl;
   text-align: center;
   font-size: 0.7rem; /* בסיס: 13.5pt ~ 18px = 1rem */
+  width: 100%;
+  box-sizing: border-box;
+}
+.logo-image {
+  height: 140px;
+  display: block;
+  margin: 20px auto;
+}
+.logo-image img {
+  width: auto;
+  height: 140px;
+  object-fit: cover;
 }
 
-header {
-  font-size: 2.5rem;
-  color: #DE4792;
-  line-height: 1.6em;
+/* Hero section setup */
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* או מה שמתאים לעיצוב שלך */
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Image gets cropped based on text size + padding */
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures it fills the area and gets cropped */
+  z-index: 0;
+  border-radius: 24px; /* Same as container for rounded edges */
+}
+
+/* Text over image */
+.hero-text {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #002157;
+  backdrop-filter: blur(3px); /* optional: subtle blur */
+  border-radius: 24px;
+}
+
+/* Title styles */
+.heading1 {
+  font-size: 2.2rem;
+  line-height: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+.heading2 {
+  font-size: 1.6rem;
+  line-height: 1.2em;
+}
+
+/* Responsive: smaller text on mobile */
+@media (max-width: 600px) {
+  .heading1 {
+    font-size: 1.6rem;
+  }
+
+  .heading2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-text {
+    padding: 15px;
+  }
 }
 
 section {
@@ -38,12 +119,6 @@ section p {
   max-width: 50%;
   margin: 0 auto 1rem;
   font-size: 1.8rem;
-}
-
-.heading1 {
-  font-size: 2rem;
-  color: #DE4792;
-  line-height: 1.8rem;
 }
 
 .testimonial-entry {
@@ -68,6 +143,20 @@ section p {
   width: 137px;
   height: 88px;
   object-fit: cover;
+}
+
+.testimonial-screenshot img{
+  padding-top: 10px;
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+/* על מובייל ואייפד (מתחת ל־960px), רוחב מלא */
+@media (max-width: 960px) {
+  .testimonial-screenshot img {
+    width: 100%;
+  }
 }
 
 /* טלפון בולט */
@@ -110,6 +199,7 @@ a[href^="tel"] {
   section p, section ul,
   .testimonial-entry {
     max-width: 100%;
+	font-size: 1.4rem;
   }
   section {
     margin-top: 2.5rem;
@@ -122,6 +212,10 @@ a[href^="tel"] {
 
   p br {
     display: none;
+  }
+  
+  p.nohide-br br {
+    display: inline;
   }
   
   header {
@@ -147,11 +241,16 @@ a[href^="tel"] {
 <body>
 
 <header>
-  <div class="kImage">
-    <img src="./images/banner_title.jpg" alt="להתחבר מחדש לתנועה ולשמחת הגוף">
+  <div class="logo-image">
+    <img src="./images/logo.png" alt="לוגו חדר משלנו">
   </div>
-  <h1 class="heading1" style="display:none">להתחבר מחדש לתנועה ולשמחת הגוף</h1>
-  <h2 class="heading2">מפגשי תנועה וריקוד <br>לנשים בגיל השלישי והרביעי</h2>
+  <div class="hero">
+    <img src="./images/flowers.png" alt="פרחים" class="hero-image">
+    <div class="hero-text">
+      <h1 class="heading1">להתחבר מחדש לתנועה ולשמחת הגוף</h1>
+      <h2 class="heading2">מפגשי תנועה וריקוד <br> לנשים בגיל השלישי והרביעי</h2>
+    </div>
+  </div>
 </header>
 
 <div class="kImage">
@@ -196,7 +295,7 @@ a[href^="tel"] {
 
 <section>
   <h2 class="heading1">מה נעשה במפגשים?</h2>
-  <p>
+  <p class="nohide-br">
     חימום עדין שמעורר את החושים<br>
     ריקוד נשי פשוט מעולמות שונים<br>
     תנועה חופשית בליווי מוזיקה מגוונת<br>
@@ -249,7 +348,7 @@ a[href^="tel"] {
   </div>
 
   <div class="kImage">
-    <img src="./images/testimonials_seperator2.jpg" alt="אישה משתפת נוספת">
+    <img src="./images/testimonials_seperator2.jpg" alt="הפרדה">
   </div>
 
   <div class="testimonial-entry">
@@ -260,7 +359,7 @@ a[href^="tel"] {
   </div>
 
   <div class="kImage">
-    <img src="./images/testimonials_seperator3.jpg" alt="אישה שלישית משתפת">
+    <img src="./images/testimonials_seperator3.jpg" alt="הפרדה">
   </div>
 
   <div class="testimonial-entry">
@@ -271,20 +370,20 @@ a[href^="tel"] {
   </div>
   
   <div class="kImage">
-    <img src="./images/testimonials_seperator1.jpg" alt="אישה שלישית משתפת">
+    <img src="./images/testimonials_seperator1.jpg" alt="הפרדה">
   </div>
 
 
-  <div class="kImage">
+  <div class="testimonial-screenshot">
     <img src="./images/testimonials_eilat_markovitch.png" alt="עדות אילת מרקוביץ">
   </div>
-  <div class="kImage">
+  <div class="testimonial-screenshot">
     <img src="./images/testimonials_miriam_shaked.png" alt="עדות מרים שקד">
   </div>
-  <div class="kImage">
+  <div class="testimonial-screenshot">
     <img src="./images/testimonials_rina_vaanunu.png" alt="עדות רינה ונונו">
   </div>
-  <div class="kImage">
+  <div class="testimonial-screenshot">
     <img src="./images/testimonials_chaya_lustig.png" alt="עדות חיה לוסטיג">
   </div>
 </section>
