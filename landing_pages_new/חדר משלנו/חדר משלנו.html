@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שבט נשים</title>
+
+  <!-- Basic Metadata -->
+  <meta name="description" content="אולי עברו שנים מאז שרקדת. אבל עמוק בפנים - עדיין יש תנועה. מפגשי תנועה וריקוד לנשים בגיל השלישי והרביעי. ">
+  <meta name="keywords" content="ריקוד לנשים, תנועה בגיל השלישי, סדנאות לנשים מבוגרות">
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="שבט נשים">
+  <meta property="og:description" content="אולי עברו שנים מאז שרקדת. אבל עמוק בפנים - עדיין יש תנועה. מפגשי תנועה וריקוד לנשים בגיל השלישי והרביעי. ">
+  <meta property="og:image" content="https://adyrosenbaum.github.io/maayandance/landing_pages_new/%D7%9C%D7%94%D7%AA%D7%97%D7%91%D7%A8%20%D7%9E%D7%97%D7%93%D7%A9%20%D7%9C%D7%AA%D7%A0%D7%95%D7%A2%D7%94%20%D7%95%D7%9C%D7%A9%D7%9E%D7%97%D7%AA%20%D7%94%D7%92%D7%95%D7%A3/images/maayan_baloon.jpg">
+  <meta property="og:url" content="https://adyrosenbaum.github.io/maayandance/landing_pages_new/%D7%9C%D7%94%D7%AA%D7%97%D7%91%D7%A8%20%D7%9E%D7%97%D7%93%D7%A9%20%D7%9C%D7%AA%D7%A0%D7%95%D7%A2%D7%94%20%D7%95%D7%9C%D7%A9%D7%9E%D7%97%D7%AA%20%D7%94%D7%92%D7%95%D7%A3/%D7%9C%D7%94%D7%AA%D7%97%D7%91%D7%A8%20%D7%9E%D7%97%D7%93%D7%A9%20%D7%9C%D7%AA%D7%A0%D7%95%D7%A2%D7%94%20%D7%95%D7%9C%D7%A9%D7%9E%D7%97%D7%AA%20%D7%94%D7%92%D7%95%D7%A3.html">
+  <meta property="og:locale" content="he_IL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="שבט נשים">
+  <meta name="twitter:description" content="אולי עברו שנים מאז שרקדת. אבל עמוק בפנים - עדיין יש תנועה. מפגשי תנועה וריקוד לנשים בגיל השלישי והרביעי. ">
+  <meta name="twitter:image" content="https://adyrosenbaum.github.io/maayandance/landing_pages_new/%D7%9C%D7%94%D7%AA%D7%97%D7%91%D7%A8%20%D7%9E%D7%97%D7%93%D7%A9%20%D7%9C%D7%AA%D7%A0%D7%95%D7%A2%D7%94%20%D7%95%D7%9C%D7%A9%D7%9E%D7%97%D7%AA%20%D7%94%D7%92%D7%95%D7%A3/images/maayan_baloon.jpg">
+  <style>
+body {
+  font-family: "Arial", sans-serif;
+  background-color: white;
+  color: #002157;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 25px;
+  direction: rtl;
+  text-align: center;
+  font-size: 0.7rem; /* בסיס: 13.5pt ~ 18px = 1rem */
+  width: 100%;
+  box-sizing: border-box;
+}
+.logo-image {
+  height: 140px;
+  display: block;
+  margin: 20px auto;
+}
+.logo-image img {
+  width: auto;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* Hero section setup */
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* או מה שמתאים לעיצוב שלך */
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Image gets cropped based on text size + padding */
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures it fills the area and gets cropped */
+  object-position: 50% 100%;
+  z-index: 0;
+  border-radius: 24px; /* Same as container for rounded edges */
+}
+
+/* Text over image */
+.hero-text {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: #9E2741;
+  backdrop-filter: blur(3px); /* optional: subtle blur */
+  border-radius: 24px;
+}
+
+/* Title styles */
+.heading1 {
+  font-size: 3.2rem;
+  line-height: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+.heading2 {
+  font-size: 1.6rem;
+  line-height: 1.2em;
+}
+
+.heading3 {
+  font-size: 2.2rem;
+  line-height: 1.4em;
+  margin-bottom: 0.5em;
+  color: #DE4792;
+}
+
+/* Responsive: smaller text on mobile */
+@media (max-width: 600px) {
+  .heading1 {
+    font-size: 1.6rem;
+  }
+
+  .heading2 {
+    font-size: 1.2rem;
+  }
+  
+  .heading3 {
+    font-size: 1.6rem;
+	line-height: 1.4em;
+	margin-bottom: 0.5em;
+  }
+
+  .hero-text {
+    padding: 15px;
+  }
+}
+
+section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+section p {
+  max-width: 50%;
+  margin: 0 auto 1rem;
+  font-size: 1.8rem;
+}
+
+.testimonial-entry {
+  max-width: 60%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.testimonial-entry p {
+  margin-bottom: 0;
+}
+
+.kImage img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+.portrateImage {
+  width: 40%;
+  margin: 0 auto; /* centers the container */
+}
+@media (max-width: 960px) {
+  .portrateImage {
+	  width: 60%;
+	}
+}
+@media (max-width: 700px) {
+  .portrateImage {
+	  width: 90%;
+	}
+}
+.portrateImage img {
+  width: 100%;      /* image fills 50% of page width via parent */
+  height: auto;
+  display: block;
+  border-radius: 24px;
+}
+
+/* מפרידי עדויות */
+.testimonial .kImage img[src*="testimonials_seperator"] {
+  width: 137px;
+  height: 88px;
+  object-fit: cover;
+}
+
+.testimonial-screenshot img{
+  padding-top: 10px;
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+/* על מובייל ואייפד (מתחת ל־960px), רוחב מלא */
+@media (max-width: 960px) {
+  .testimonial-screenshot img {
+    width: 100%;
+  }
+}
+
+/* טלפון בולט */
+.tel {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #DE4792;
+}
+.tel br {
+  display: none;
+}
+
+/* התאמה למסכים צרים */
+@media (max-width: 960px) {
+  section p, section ul {
+    max-width: 80%;
+  }
+  
+  header {
+    font-size: 2rem;
+    color: #DE4792;
+	line-height: 1.6em;
+  }
+
+  .testimonial-entry {
+    max-width: 80%;
+  }
+  .tel br {
+    display: block;
+  }
+}
+
+@media (max-width: 700px) {
+  section p, section ul,
+  .testimonial-entry {
+    max-width: 100%;
+	font-size: 1.4rem;
+  }
+  section {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  header br {
+    display: none;
+  }
+
+  p br {
+    display: none;
+  }
+  
+  p.nohide-br br {
+    display: inline;
+  }
+  
+  header {
+    font-size: 1.6rem;
+    color: #DE4792;
+	line-height: 1.6em;
+  }
+
+  body {
+    font-size: 1rem; /* קטן יותר במובייל */
+	line-height: 1.4;
+  }
+}
+
+@media (max-width: 1300px) {
+  .tel br {
+    display: block;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-image">
+    <img src="./images/logo.png" alt="לוגו חדר משלנו">
+  </div>
+  <div class="hero">
+    <img src="./images/flowers.png" alt="פרחים" class="hero-image">
+    <div class="hero-text">
+      <h1 class="heading1">שבט נשים</h1>
+      <h2 class="heading2">סדנאות תנועה וריקוד<br>לנשים מגיל חמישים</h2>
+    </div>
+  </div>
+</header>
+
+<div class="kImage">
+  <img src="./images/seperator_wings.jpg" alt="כנפיים">
+</div>
+
+<section>
+	<p>
+	<strong>
+	מתי בפעם האחרונה הרגשת מלאת חיים ושמחה כמו ילדה?<br>
+	מתי הייתה לך הזדמנות לרקוד,
+	לעוף עם הדמיון, לתת לגוף שלך להפתיע אותך ביופי שיוצא ממנו?
+	</strong>
+	</p>
+		
+	<p>
+	כשאת מסתכלת על ילדים, זה כל כך ברור: הם פלא. 
+	הם מלאי חיים, משתנים בכל רגע, 
+	אמיתיים, הכל פתוח בפניהם.
+	ואת, שכל השנים נתת את כל כולך למשפחה, 
+	בעיניים עצומות ידעת מי צריך מה - ממשיכה לתת את עצמך, 
+	במלוא הכוח והאהבה, ואולי קצת חמק ונשכח ממך שאת בעצמך פלא. 
+	שגם ממך יכולים לצאת דברים חדשים. שהדרך עדיין פתוחה: 
+	שאת עוד יכולה להיות סקרנית וטרייה,
+	מוקסמת מתנועה חדשה, להתמלא בחיים ובעוצמה,
+	להפתיע את עצמך.
+	</p>
+</section>
+ 
+	<div class="divider" style="padding:10px 0; text-align:center; width:100%;">
+		<div style="width:50%; border-bottom:1px double rgb(0, 33, 87); margin:auto;"></div>
+	</div>
+
+<section> 
+	<p>
+	<strong>
+	כולנו זקוקות לזמן שבו נוכל להרפות, 
+	להיענות למה שהגוף שלנו מבקש, למה שנעים לנו.
+	זמן להעיר את החושים, לתת לעצמנו ביטוי -
+	ויש משהו שקורה במפגש שלנו עם הגוף שאי אפשר לחוות בשום דרך אחרת.
+	קבוצת נשים שרוקדת יחד יוצרת רשת תמיכה שהיא מעבר למילים, מעבר ליומיום.
+	הסדנה היא מרחב בשבילנו לפגוש את עצמנו.
+	לעצום לרגע עיניים, לתת מקום לגוף, לבטן ולאגן. לחגוג אותם.
+	להיות עדינות ואוהבות לעצמנו.  
+	</strong>
+	</p>
+</section>
+
+<section>
+	<div class="kImage">
+		<img src="./images/maayan_baloon.jpg" alt="ריקוד נשים">
+	</div>
+</section>
+
+<section>
+	<h2 class="heading3">זמן רק לעצמך</h2>
+
+	<p>
+	מפגשים שבהם נצלול יחד לזמן שכולו שלנו
+	לשחרר את הגוף ולהעיר את החושים
+	עם <strong>תנועה ומוסיקה</strong> ממזרח וממערב.
+	</p>
+
+	<p>
+	כל מפגש נפתח בחימום רך ועמוק שמעורר את החושים.
+	כשהגוף חם וער אנחנו רוקדות במעגל סוחף
+	שמשלב תנועות מעולם ריקוד הבטן וריקוד צועני.
+	משם אנחנו צוללות לתנועה ולביטוי אישי.
+	</p>
+
+	<p>
+	<strong>תעטוף אותנו מוסיקה יפהפיה</strong><br>
+	מטורקיה, מרוקו, מצריים, אפריקה, הודו, רומניה, ישראל ועוד.
+	</p>
+
+	<p>
+	<strong>את לא צריכה להגיע עם ניסיון קודם בריקוד.</strong><br>
+	התנועה של הגוף שלך היא אישית. 
+	אין כמוה בעולם כולו, 
+	בדיוק כמו שאין עוד אף אחת כמוך.
+	ולכן כל תנועה שנעשה יחד
+	היא כלי - לחופש שלך להיות, 
+	להרגיש ולהביע את עצמך.
+	</p>
+</section>
+
+<section>
+	<iframe width="560" height="315"
+        src="https://www.youtube.com/embed/qupfNp6WvS4?start=43"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+	</iframe>
+</section>
+
+<section>
+  <div class="kImage">
+    <img src="./images/banner_about.jpg" alt="על המנחה">
+  </div>
+  <h2 class="heading3">מעיין בן דוד</h2>
+  <p>מנחת סדנאות תנועה, ריקוד ויצירה, עם ניסיון של למעלה מ-25 שנה.<br>
+  בוגרת תואר ראשון במחול ותעודת הוראה מהאקדמיה למוסיקה ולמחול בירושלים.<br>
+  יוצרת "חדר משלנו" – בית נשי לתנועה וליצירה,<br>
+  ויזמת "החצר של סבא וסבתא" – מיזם חברתי בין-דורי.</p>
+
+  <div class="kImage portrateImage">
+    <img src="./images/maayan_portrait.jpg" alt="מעיין בן דוד">
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="kImage">
+    <img src="./images/benner_testimonials.jpg" alt="נשים מספרות">
+  </div>
+
+  <h2 class="heading3">נשים שהשתתפו בסדנאות "חדר משלנו" מספרות</h2>
+
+  <div class="testimonial-entry">
+    <p class="normal">
+		"בסדנה שלך מצאתי את מה שבאתי לחפש, את הנשיות שלי,  
+		את החיבור שלי עם הגוף, את החופש להיות כל מה שבא לי.  
+		הצלחת בכמה שבועות להעביר אותי מסע  
+		שהיה לוקח לי חודשים על גבי חודשים לעבור במקרה הטוב." 
+    </p>
+  </div>
+
+  <div class="kImage">
+    <img src="./images/testimonials_seperator1.jpg" alt="הפרדה">
+  </div>
+
+  <div class="testimonial-entry">
+    <p class="normal">
+		"את לימדת אותי איך להתייחס לגוף שלי, לעצמי... 
+		זה מדהים שבכל שנות חיי, שנים של לימודים, 
+		אף אחד אף פעם לא לימד אותי איך להתייחס לגוף שלי,
+		איך לחגוג אותו, איך להקשיב לו. 
+		זכיתי בך כמורה לחיבור שלי עם עצמי, עם הנשיות שלי."
+    </p>
+  </div>
+
+  <div class="kImage">
+    <img src="./images/testimonials_seperator2.jpg" alt="הפרדה">
+  </div>
+
+  <div class="testimonial-entry">
+    <p class="normal">
+		"כל השבוע אני הולכת לאיבוד בתוך המחשבות, התחושות, הזכרונות,
+		ואז מגיע יום שני ואת מגיעה עם שמחת החיים שלך,
+		הפשטות והכנות, ומתחילה בריקוד עם חיוך מכל הלב ואמונה
+		שמגיע לנו לשמוח ולחגוג כך סתם כי זה יום שני בבוקר,
+		ואני נשאבת לתוך זה תוך שניות ושוכחת הכל."
+    </p>
+  </div>
+
+  <div class="kImage">
+    <img src="./images/testimonials_seperator3.jpg" alt="הפרדה">
+  </div>
+
+  <div class="testimonial-entry">
+    <p class="normal">
+		"נוצר משהו אינטימי בתוך הקבוצה. 
+		שכחתי שבדרך כלל מביך אותי לרקוד ליד עוד אנשים.
+		הרגשתי שאנחנו עוברות משהו ביחד."
+    </p>
+  </div>
+
+  <div class="kImage">
+    <img src="./images/testimonials_seperator1.jpg" alt="הפרדה">
+  </div>
+
+  <div class="testimonial-entry">
+    <p class="normal">
+		"נוצר משהו אינטימי בתוך הקבוצה. 
+		שכחתי שבדרך כלל מביך אותי לרקוד ליד עוד אנשים.
+		הרגשתי שאנחנו עוברות משהו ביחד."
+    </p>
+  </div>
+
+  <div class="kImage">
+    <img src="./images/testimonials_seperator2.jpg" alt="הפרדה">
+  </div>
+
+  <div class="testimonial-entry">
+    <p class="normal">
+		"אני מעידה ממקור ראשון, מעצמי, 
+		שמתחוללים נסים קטנים במפגשים המרתקים. 
+		מתגלה עולם שלא ידעת על קיומו. והוא שלך. 
+		ממליצה בחום רב ."
+		<em>גאולה עשת</em>
+    </p>
+  </div>
+
+  <div class="kImage">
+    <img src="./images/testimonials_seperator3.jpg" alt="הפרדה">
+  </div>
+
+  <div class="testimonial-entry">
+    <p class="normal">
+		"שעתיים של התנתקות מכל הגירויים החיצוניים שמסביב...
+		אל תוך המרחב הפנימי שלי, מתבוננת, חוקרת ומגלה
+		את גופי הפיסי, הנפשי והרוחני.
+		תודות ליצירתיות הבלתי נגמרת שלך ולשפע הרעיונות,
+		הצלחת בכל פעם לעורר בי תחושות עצומות ומעצימות, 
+		להכיר עצמי טוב יותר, 
+		ולהבין שהגבול... הם באמת השמיים!
+		והבחירות לגמרי שלי.
+		והכל, תוך כדי תנועה, עם אביזרים ובלעדיהם, 
+		ועם הרבה שמחה, חיוכים ונשמה."
+		<em>דורית מורג</em>
+    </p>
+  </div>
+  
+  <div class="kImage">
+    <img src="./images/testimonials_seperator1.jpg" alt="הפרדה">
+  </div>
+  
+  <div class="testimonial-entry">
+    <p class="normal">
+		"מעיין יקרה... את מצליחה להציף את המחשבות והרגשות,
+		לתת לנו לשוחח איתם ולהירגע...
+		ויותר מכך, הפעילויות השונות מעוררות את הגוף ומחברות אותו לנפש...
+		והמוזיקה... מנגינה לנפש.
+		מעל הכל את משלבת, מדריכה, מנחמת, מרגיעה ומכילה
+		את הקבוצה המיוחדת שנוצרה.
+		תודה לך ולבנות הקבוצה!!!"
+		<em>רינה ונונו</em>
+    </p>
+  </div>  
+
+  <div class="kImage">
+    <img src="./images/testimonials_seperator2.jpg" alt="הפרדה">
+  </div>
+
+  <div class="testimonial-entry">
+    <p class="normal">
+		"מקום קסום לרקוד בו, לשמוח, להרגיש, לעוף...
+		ולחזור למציאות היומיומית מחויכות, מפויסות וקלות תנועה.
+		מתנה אמיתית."
+		<em>נילי מיזלס</em>
+    </p>
+  </div>  
+
+  <div class="testimonial-screenshot">
+    <img src="./images/testimonials_bilha_harel.png" alt="בלהה הראל">
+  </div>
+
+  <div class="testimonial-screenshot">
+    <img src="./images/testimonials_uri_gila.png" alt="אורי בן גרא וגילה סרור">
+  </div>
+
+  <div class="testimonial-screenshot">
+    <img src="./images/testimonials_eilat_markovitch.png" alt="אילת מרקוביץ">
+  </div>
+
+  <div class="testimonial-screenshot">
+    <img src="./images/testimonials_miriam_shaked.png" alt="מרים שקד">
+  </div>
+
+  <div class="testimonial-screenshot">
+    <img src="./images/testimonials_rina_vaanunu.png" alt="רינה ונונו">
+  </div>
+  
+  <div class="testimonial-screenshot">
+    <img src="./images/testimonials_chaya_lustig.png" alt="חיה לוסטיג">
+  </div>  
+</section>
+
+<section>
+  <div class="kImage">
+    <img src="./images/banner_details.jpg" alt="סדנה מרעננת בקבוצת נשים">
+  </div>
+
+  <h2 class="heading3">סדנה בקבוצה נשית דרך תנועה וריקוד</h2>
+
+  <div>
+    <p class="normal">
+		מפגשים שבהם נתחבר לקצב ולתנועה נשית ומשוחררת,
+		נצלול לתוך הרכות של התנועה מעולם המחול המזרחי,
+		ונסיים בביטוי אישי דרך תנועה חופשית ואימפרוביזציה מונחית.
+	</p>
+	<br>
+	<p class="normal">
+		ספטמבר 2025<br>
+		2 סדנאות בנות שעתיים:
+	</p>
+	<br>
+	<p class="normal">
+		<span class="heading3">רשות לרכות</span><br>
+		<em>
+		10 בספטמבר<br>
+		בשעות 17:30-19:30<br>
+		</em>
+		למצוא את הרכות ביחד גם כשאין מילים, גם כשהלב סגור, גם כשהעולם מכתיב אחרת. איך זה להיות רכה מול מה שקורה בפנים, מול מה שקורה בחוץ - לתת מקום למה שקורה בפנים, ולגלות את התנועה והחיים שנוצרים דווקא מתוך זה.
+	</p>	
+	<br>
+	<p class="normal">
+		<span class="heading3">שמחה שנובעת מתוך הגוף</span><br>
+		<em>
+		17 בספטמבר<br>
+		בשעות 17:30-19:30<br>
+		</em>
+		איך זה מרגיש כשמתוך הגוף מבעבעת שמחה בלי הסבר או סיבה. ביחד ניצור מרחב שבו אנחנו יכולות לפגוש שמחה פשוטה, אמיתית, שעולה מתוך הגוף ומתרחבת מתוך היחד. שמחה שנולדת מתנועה, מחיבור לאגן, מעיניים טובות שמקיפות אותנו, ומהרשות פשוט להיות.	</p>	
+	</p>
+	<br>
+
+	<p class="normal">
+		<span class="heading3">איפה</span><br>
+		במרכז "שילה"<br>
+		שושנת הכרמל 47, חיפה
+	</p>
+	<br>
+	<p class="normal">
+		<span class="heading3">עלות</span><br>
+		שתי הסדנאות – ₪260<br>
+		סדנה אחת – ₪150	
+	</p>
+	<br>
+	<p class="normal">
+		<span class="heading3">להרשמה</span><br>
+		לשתי הסדנאות: <br>
+		<a href="https://did.li/myLZH" target="_blank">https://did.li/myLZH</a><br>
+		לסדנה אחת:<br>
+		<a href="https://did.li/nyLZH" target="_blank">https://did.li/nyLZH</a><br>
+	</p>
+  </div>
+</section>
+
+
+<section>
+  <span class="heading3">אשמח לדבר איתך</span><br>
+  <P class="tel">
+	מעיין בן דוד <br>
+	<a href="https://wa.me/972506395727" target="_blank">050-6395727</a>
+  </P>
+</section>
+
+<div class="kImage">
+  <img src="./images/seperator_wings.jpg" alt="הפרדה">
+</div>
+
+
+<footer>
+  <div class="small-text">עיצוב הדף: רעות שטרן - מעצבת גרפית</div>
+</footer>
+
+</body>
+</html>
