@@ -1,0 +1,1103 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  direction: rtl;
+  line-height: 1.6;
+  color: #2a2e43;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  /*min-height: 100vh;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: white; /* linear-gradient(135deg, #e3f9e5 0%, #e0f0ff 100%); */
+  padding: 30px 20px;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #3d6d4d;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  display: block;
+  margin: 0 0 -5px 0; /* pull tagline upward slightly */
+  font-size: 3rem;
+  font-weight: 300;
+  color: #A6A6A6;
+}
+
+.hero-description br {
+  display: block; /* force line break */
+  content: "";
+  margin-top: 0;
+}
+
+.hero-description {
+  display: block;
+/*  font-size: 1.2rem;*/
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0;
+  max-width: 100%;
+  line-height: 1.3;
+  color: #A6A6A6;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.hero-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 30px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* כפתור ילדים */
+.btn-kids,
+.cta-btn.btn-kids {
+  background-color: #e8f0f8 !important; /* 👈 כחול יותר בולט */
+  color: #2c5f99 !important; /* 👈 כחול יותר כהה */
+  border: 1.5px solid #c5d9ec !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-kids:hover,
+.cta-btn.btn-kids:hover {
+  background-color: #3e78b2 !important;
+  border-color: #3e78b2 !important;
+  color: #ffffff !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 24px rgba(62, 120, 178, 0.3) !important;
+}
+
+/* כפתור גמלאים */
+.btn-seniors,
+.cta-btn.btn-seniors {
+  background-color: #e8f7ee !important; /* 👈 ירוק בהיר מאוד (מבוסס על #5BC783) */
+  color: #3d9861 !important; /* 👈 ירוק כהה יותר מ-#5BC783 */
+  border: 1.5px solid #c5e8d4 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-seniors:hover,
+.cta-btn.btn-seniors:hover {
+  background-color: #5BC783 !important; /* 👈 הירוק שלך */
+  border-color: #5BC783 !important;
+  color: #ffffff !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 24px rgba(91, 199, 131, 0.3) !important;
+}
+
+.btn-emoji {
+  font-size: 2rem;
+}
+
+/* video carousel */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;             /* ✅ Horizontally center */
+  margin-top: 20px;
+  display: flex;              /* ✅ Optional: for vertical centering */
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  max-width: 100vw;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+}
+.carousel-track {
+  display: flex;
+  direction: rtl;
+  transition: transform 0.8s ease-in-out;
+  will-change: transform;
+}
+.carousel video {
+  flex: 0 0 100%;
+  width: 50%;
+  height: auto;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+.carousel-dots button {
+  background: white;
+  border: none;
+  width: 12px;
+  height: 12px;
+  margin: 5px;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+  z-index: 10; /* ✨ added to ensure it's on top */
+}
+.carousel-dots button.active {
+  opacity: 1;
+}
+
+.video-wrapper { /* ✨ added for play icon */
+  flex: 0 0 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper video { /* ✨ added for play icon */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.play-icon { /* ✨ added for play icon */
+  position: absolute;
+  font-size: 64px;
+  color: white;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video-wrapper.paused .play-icon { /* ✨ added for play icon */
+  opacity: 0.8;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #999;
+  font-size: 0.9rem;
+  animation: bounce 2s infinite;
+}
+
+.arrow {
+  font-size: 1.5rem;
+}
+
+/* Sections */
+.section {
+  /*min-height: 100vh;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.intro-text {
+  font-size: 1.25rem;
+  line-height: 2;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.main-description {
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #444;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #3e78b2;
+  margin-bottom: 20px;
+}
+
+.peek-summary {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 40px;
+  line-height: 1.8;
+}
+
+.why-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.why-content p {
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.leader-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 700px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #fafafa;
+  border-radius: 16px;
+}
+
+.leader-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.leader-content h3 {
+  font-size: 1.4rem;
+  color: #3e78b2;
+  margin-bottom: 15px;
+}
+
+.leader-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  text-align: right;
+}
+
+.testimonial-featured {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 20px auto 40px;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: right;
+}
+
+.testimonial-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  font-size: 0.95rem;
+  color: #3e78b2;
+  font-weight: 500;
+}
+
+.whatsapp-gallery {
+  margin-top: 60px;
+}
+
+.whatsapp-gallery h3 {
+  font-size: 1.5rem;
+  color: #3d6d4d;
+  margin-bottom: 30px;
+}
+
+/* WhatsApp gallery – עמודה אחת, 40% רוחב מסך */
+.whatsapp-grid{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin: 0 auto;
+}
+
+/* כל תמונה באותו רוחב, גם במובייל */
+.whatsapp-grid img{
+  width: var(--wa-img-w);
+  max-width: calc(100vw - 32px);  /* כדי שלא ייצא מהמסך במובייל */
+  height: auto;
+  display: block;
+
+  /* בלי "מסגרת" חיצונית */
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+
+  /* מבטל אנימציות/הגדלות שהיו קודם */
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.whatsapp-grid img:hover{
+  transform: scale(1.2);
+}
+
+.details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.15rem;
+  color: #444;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.detail-icon {
+  font-size: 2rem;
+}
+
+.details-description {
+  font-size: 1.2rem;
+  line-height: 2;
+  color: #555;
+  margin-top: 40px;
+}
+
+/* CTA Section */
+
+.cta-description,
+.cta-question {
+  font-size: 1.15rem;
+  line-height: 2;
+  color: #444;
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.cta-mini-title{
+  margin: 50px 0 14px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: rgba(0,0,0,0.72);
+  line-height: 1.2;
+}
+
+/* במובייל קצת יותר הדוק */
+@media (max-width: 600px){
+  .cta-mini-title{
+    margin: 20px 0 12px;
+    font-size: 1rem;
+  }
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 30px auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 30px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cta-note {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #666;
+  margin-top: 30px;
+}
+
+/* Footer */
+.footer {
+  background-color: #2a2e43;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  scroll-snap-align: end;
+}
+
+.footer a {
+  color: #4d8f65;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 3rem;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    max-width: 100%;
+  }
+
+  .questions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .leader-card {
+    flex-direction: row;
+    text-align: right;
+  }
+
+  .leader-content {
+    flex: 1;
+  }
+
+  .cta-buttons {
+    flex-direction: row;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .carousel {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    width: 90%; /* 👈 שונה מ-100% ל-90% */
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-snap-type: none;
+  }
+
+  .section {
+    min-height: auto;
+    padding: 20px 20px;
+  }
+
+  .hero-section {
+    /*min-height: 100vh;*/
+    padding: 20px 15px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2rem !important; /* במקום 2rem */
+  }
+
+  .hero-description {
+    font-size: 1.2rem !important; /* במקום 2rem */
+  }
+
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+
+  .intro-text,
+  .main-description,
+  .peek-summary,
+  .why-content p,
+  .details-description,
+  .cta-description,
+  .cta-question,
+  .cta-note {
+    font-size: 1.05rem;
+  }
+
+  /* Let text wrap naturally on mobile instead of forced line breaks */
+  br {
+    display: none;
+  }
+
+  .hero-btn,
+  .cta-btn {
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+
+  .whatsapp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Sticky header (desktop + mobile)
+   Triggered when hero logo/title reaches the top
+   ========================= */
+
+:root{
+  --sticky-h: 72px;
+}
+
+/* Fixed header (hidden by default) */
+.sticky-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--sticky-h);
+
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+
+  transform: translateY(-110%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+
+  z-index: 3000;
+}
+
+.sticky-header.show{
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* Smoothly reveal inner items once the sticky header slides in */
+.sticky-header-logo,
+.sticky-header-text{
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.35s ease;
+  will-change: transform, opacity;
+}
+
+.sticky-header.show .sticky-header-logo{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.08s;
+}
+
+.sticky-header.show .sticky-header-text{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.12s;
+}
+
+/* Desktop layout: logo on the (physical) left, title centered */
+@media (min-width: 768px){
+  .sticky-header{
+    display: grid;
+    grid-template-columns: 68px 1fr 68px;  /* right column balances center */
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+
+    /* Ensure the left column is physically left even on RTL pages */
+    direction: ltr;
+  }
+
+  .sticky-header-logo{
+    width: 56px;
+    height: auto;
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .sticky-header-text{
+    grid-column: 2;
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+
+    direction: rtl;
+    text-align: center;
+  }
+
+  .sticky-header-spacer{
+    grid-column: 3;
+    width: 56px;
+    height: 1px;
+  }
+
+  .sticky-header-title{
+    /*margin: 0;
+    font-size: 1.24rem;
+    font-weight: 700;
+    color: #3e78b2;
+    line-height: 1.1;
+    */
+    font-weight: 300;      /* כמו hero */
+    color: #A6A6A6;        /* כמו hero */
+    font-size: 1.50rem;    /* קטן מה-hero, אבל ברור */
+    margin: 0 0 -2px 0;    /* כמו ה"טייטל+טאג-ליין" בהירו */
+  }
+
+  .sticky-header-subtitle{
+    /*margin: 0;
+    font-size: 0.90rem;
+    color: #666;
+    line-height: 1.15;*/
+    font-weight: 300;
+    color: #A6A6A6;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .sticky-header-subtitle span{ display:block; }
+
+  /* Desktop-only: fade out hero elements once sticky is visible (no layout jump) */
+  .hero-content .logo,
+  .hero-content .hero-subtitle,
+  .hero-content .hero-description{
+    transition: opacity 0.25s ease, transform 0.35s ease;
+  }
+
+  body.is-sticky .hero-content .logo{
+  opacity: 0;
+  transform: translateY(-12px) scale(0.92);
+  pointer-events: none;
+  }
+
+    body.is-sticky .hero-content .hero-subtitle,
+    body.is-sticky .hero-content .hero-description{
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+    }
+
+ /* --- Desktop: when sticky appears, collapse hero-content so the video rises (layout) --- */
+
+  .hero-content{
+    overflow: hidden;
+    max-height: 420px; /* מספיק גדול למצב הרגיל */
+    transition: max-height 0.55s ease, opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  body.is-sticky .hero-content{
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+  }
+
+  /* keep the video movement smooth too */
+  .hero-section .carousel{
+    transition: margin-top 0.55s ease, transform 0.55s ease;
+  }
+
+  body.is-sticky .hero-section .carousel{
+    margin-top: 10px;     /* במקום ה-50px הרגיל שיש לך ל-carousel */
+    transform: translateY(0);
+  }
+
+  .hero-section{
+    transition: padding-top 0.55s ease;
+  }
+
+  body.is-sticky .hero-section{
+    padding-top: calc(120px + var(--sticky-h));
+  }
+}
+
+/* Mobile: no logo. Centered + smaller.
+   Trigger is based on the hero title touching the top. */
+@media (max-width: 767px){
+  :root{
+    --sticky-h: 60px;
+  }
+
+  .sticky-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    direction: rtl;
+  }
+
+  .sticky-header-logo{
+    display: none;
+  }
+
+  .sticky-header-spacer{
+    display: none;
+  }
+
+  .sticky-header-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+  }
+
+  .sticky-header-title{
+  /*  margin: 0;
+    font-size: 1.06rem;
+    font-weight: 700;
+    color: #3e78b2;
+    line-height: 1.1;*/
+
+    font-weight: 300;      /* כמו hero */
+    color: #A6A6A6;        /* כמו hero */
+    font-size: 1.50rem;    /* קטן מה-hero, אבל ברור */
+    margin: 0 0 -2px 0;    /* כמו ה"טייטל+טאג-ליין" בהירו */
+  }
+
+  .sticky-header-subtitle{
+    /*margin: 0;
+    font-size: 0.84rem;
+    color: #666;
+    line-height: 1.15;*/
+    font-weight: 300;
+    color: #A6A6A6;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  /* Mobile: avoid double title (hero + sticky) */
+  .hero-content .hero-subtitle,
+  .hero-content .hero-description{
+    transition: opacity 0.25s ease, transform 0.35s ease;
+  }
+
+  body.is-sticky .hero-content .hero-subtitle,
+  body.is-sticky .hero-content .hero-description{
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+  }
+
+}
+
+/* Very narrow phones: keep only the main title to avoid crowding */
+@media (max-width: 420px){
+  .sticky-header-subtitle{ display: none; }
+}
+
+@media (min-width: 768px){
+  :root{ --sticky-h: 100px; } /* היה בפועל 72px */
+}
+
+/* מצב התחלתי */
+#hero .hero-logo,
+#hero .hero-title,
+#hero .hero-tagline,
+#hero .hero-video{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+/* סדר ההופעה */
+#hero .hero-logo  { transition-delay: 0ms; }
+#hero .hero-title { transition-delay: 160ms; }
+#hero .hero-tagline { transition-delay: 320ms; }
+#hero .hero-video { transition-delay: 480ms; }
+
+/* מצב “מוכן” */
+#hero.is-visible .hero-logo,
+#hero.is-visible .hero-title,
+#hero.is-visible .hero-tagline,
+#hero.is-visible .hero-video{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* נגישות: בלי אנימציות למי שמבקש */
+@media (prefers-reduced-motion: reduce){
+  #hero .hero-logo,
+  #hero .hero-title,
+  #hero .hero-tagline,
+  #hero .hero-video{
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* ===== Peek cards with images ===== */
+
+.section-peek{
+  background: #f5f7fb;   /* נקי כמו בצילום */
+}
+
+.peek-grid{
+  margin-top: 28px;
+  --peek-gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--peek-gap);
+}
+
+.peek-card{
+  background: #fff;
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+
+  display: flex;
+  flex-direction: row;     /* RTL: האלמנט הראשון יושב בצד ימין */
+  direction: rtl;          /* חשוב: מגדיר start/right עבור ה-flex */
+  align-items: center;
+  gap: 16px;
+
+  text-align: right;
+
+  /* אנימציית כניסה */
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+  transition: opacity .6s ease, transform .6s ease, box-shadow .25s ease;
+  transition-delay: var(--delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.peek-card.in-view{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.peek-card:hover{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+/* תמונה תמיד מימין */
+.peek-media{
+  order: 0;                /* ראשון ב-RTL => יופיע מימין */
+  width: 92px;
+  height: 92px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  flex: 0 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* שכבת ליטוש עדינה מעל התמונה */
+.peek-media::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(0,0,0,0.10));
+  opacity: .55;
+}
+
+/* טקסט תמיד משמאל לתמונה, מיושר לימין */
+.peek-text{
+  order: 1;
+  flex: 1;
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: #2a2e43;
+  text-align: right;
+  direction: rtl;
+}
+
+/* אחרון "רחב": אותו גודל כמו האחרים + באמצע בדסקטופ */
+.peek-card.wide{
+  grid-column: 1 / -1;
+  width: calc((100% - var(--peek-gap)) / 2);  /* בדיוק רוחב של כרטיס בעמודה */
+  justify-self: center;
+}
+
+/* רספונסיביות */
+@media (max-width: 700px){
+  .peek-grid{ grid-template-columns: 1fr; }
+  .peek-card.wide{
+    grid-column: auto;
+    width: 100%;
+    justify-self: stretch;
+  }
+  .peek-media{ width: 84px; height: 84px; }
+}
+
+/* נגישות: בלי אנימציות למי שמבקש */
+@media (prefers-reduced-motion: reduce){
+  .peek-card{
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- intro video  --- */
+.video-container.local-video{
+  width: min(92vw, 520px);
+  margin: 40px auto;
+
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+
+  /* יחס אנכי */
+  aspect-ratio: 9 / 16;
+
+  /* ✅ לא לעבור גובה מסך (אז הרוחב יקטן אוטומטית) */
+  max-height: calc(100dvh - var(--sticky-h, 0px) - 140px);
+}
+
+/* fallback */
+@supports not (height: 100dvh){
+  .video-container.local-video{
+    max-height: calc(100vh - var(--sticky-h, 0px) - 140px);
+  }
+}
+
+/* ✅ לא חותכים – רואים את כל הוידאו */
+.video-container.local-video .local-video__el{
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+  object-fit: contain;   /* 👈 במקום cover */
+}
+
+
+
+
+
+/* =========================
+   Section Background Colors
+   Two options - you choose!
+   ========================= */
+
+/* Option 1: White background (default) */
+.section-white {
+  background-color: #ffffff;
+}
+
+/* Option 2: Light gray background */
+.section-gray {
+  background-color: #f5f7fb;
+}
+
+
