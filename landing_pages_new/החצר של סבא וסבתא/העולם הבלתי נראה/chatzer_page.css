@@ -148,13 +148,13 @@
 /* FAQ - unique to internal pages */
 .faq-list {
   max-width: 800px;
-  margin: 40px auto;
+  margin: 20px auto;
   text-align: right;
 }
 
 .faq-item {
   background-color: #fff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   margin-bottom: 25px;
