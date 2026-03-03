@@ -3,7 +3,7 @@
 // ====================================
 (() => {
   const stickyHeader = document.getElementById('stickyHeader');
-  const heroLogo = document.querySelector('.hero-section .logo');
+  const heroLogo = document.querySelector('.hero-section .hero-logos');
   const heroTitle = document.querySelector('.hero-section .hero-subtitle');
 
   if (!stickyHeader) return;

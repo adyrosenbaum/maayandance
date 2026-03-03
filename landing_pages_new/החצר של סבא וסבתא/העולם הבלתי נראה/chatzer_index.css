@@ -401,7 +401,7 @@ body {
   flex-direction: column;
   gap: 5px;
   max-width: 700px;
-  margin: 30px auto;
+  margin: 20px auto;
 }
 
 .detail-item {
@@ -433,7 +433,7 @@ body {
   line-height: 2;
   color: #444;
   max-width: 800px;
-  margin: 30px auto;
+  margin: 10px auto;
 }
 
 .cta-mini-title{
@@ -1101,3 +1101,76 @@ body {
 }
 
 
+/* =========================
+   Multi-logos (Hero + Sticky)
+   ========================= */
+
+:root{
+  /* רוחב עמודת הלוגואים ב-sticky בדסקטופ (3 לוגואים) */
+  --sticky-logos-w: 172px;
+  --sticky-logo-size: 44px;
+  --sticky-logo-gap: 8px;
+
+  --hero-logo-size: 110px;
+  --hero-logo-gap: 14px;
+}
+
+/* HERO: 3 לוגואים בשורה */
+.hero-logos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin-bottom:8px;
+}
+
+.hero-logos .hero-logo{
+  height:110px;   /* ✅ אותו גובה */
+  width:auto;     /* ✅ רוחב לפי פרופורציות */
+  display:block;
+  object-fit:contain;
+}
+
+/* אם מסך צר מאוד – לא לשבור עיצוב */
+@media (max-width: 420px){
+  .hero-logos .hero-logo{ height:86px; }
+  .hero-logos{ gap:10px; }
+}
+
+/* STICKY: קונטיינר ללוגואים */
+.sticky-header-logos{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* כל לוגו ב-sticky באותו גודל */
+.sticky-header-logos .sticky-header-logo{
+  height:44px;    /* ✅ אותו גובה */
+  width:auto;     /* ✅ רוחב לפי פרופורציות */
+  display:block;
+  object-fit:contain;
+}
+
+/* Desktop sticky grid: להרחיב את עמודת הלוגואים + spacer כדי לשמור על כותרת במרכז */
+@media (min-width: 768px){
+  .sticky-header{
+    grid-template-columns: var(--sticky-logos-w) 1fr var(--sticky-logos-w);
+  }
+
+  .sticky-header-logos{
+    grid-column: 1;
+    width: var(--sticky-logos-w);
+    justify-self: start;
+  }
+
+  .sticky-header-spacer{
+    grid-column: 3;
+    width: var(--sticky-logos-w);
+  }
+}
+
+/* Mobile: נשאיר כמו אצלך—לוגו מוסתר ב-sticky (כמו היום) */
+@media (max-width: 767px){
+  .sticky-header-logos{ display: none; }
+}
