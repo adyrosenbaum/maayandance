@@ -94,9 +94,10 @@
 
 .form-row {
   margin-bottom: 20px;
+  text-align: right;
 }
 
-.form-row input,
+.form-row input:not([type="checkbox"]):not([type="radio"]),
 .form-row textarea {
   width: 100%;
   padding: 15px;
@@ -192,4 +193,58 @@
   .price {
     font-size: 1.5rem;
   }
+}
+
+
+/* radio buttons for forms */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.radio-option {
+  display: inline-flex;
+  align-items: right;
+  gap: 8px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.radio-option input[type="radio"] {
+  margin: 0;
+}
+
+.conditional-details {
+  margin-top: 10px;
+}
+
+.details-input {
+  width: 100%;
+}
+
+
+
+
+.checkbox-row {
+  width: 100%;
+  text-align: right;
+  margin-top: 16px;
+}
+
+.checkbox-label {
+  display: inline-block;
+  direction: rtl;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin: 0 0 0 8px; /* רווח בין הצ'קבוקס לטקסט */
+  vertical-align: middle;
+}
+
+.checkbox-label span {
+  vertical-align: middle;
 }

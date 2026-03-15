@@ -271,6 +271,9 @@ body {
   color: #3e78b2;
   margin-bottom: 20px;
 }
+h3.section-title {
+  font-size: 1.5rem;
+}
 
 .peek-summary {
   font-size: 1.2rem;
