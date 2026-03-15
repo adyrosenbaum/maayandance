@@ -1,3 +1,4 @@
+
 (() => {
   function initAjaxForms() {
     const forms = document.querySelectorAll('form[data-submit-url]');
